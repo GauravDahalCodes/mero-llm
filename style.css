@@ -23,6 +23,8 @@ body {
     flex-direction: column;
     width: 100vw;
     background: #121212;
+    min-height: 100vh; /* Ensure full height */
+    overflow-y: auto; /* Allow scrolling if needed */
 }
 
 /* Header */
@@ -31,6 +33,7 @@ body {
     color: white;
     padding: 0.75rem 2rem;
     border-bottom: 1px solid #333333;
+    flex-shrink: 0; /* Prevent header from shrinking */
 }
 
 .header-content {
@@ -94,8 +97,10 @@ body {
 /* Chat Container */
 .chat-container {
     flex: 1;
-    overflow: hidden;
+    overflow-y: auto; /* Ensure scrolling for content */
     background: #121212;
+    display: flex;
+    flex-direction: column;
 }
 
 .chat-messages {
@@ -104,6 +109,7 @@ body {
     padding: 6rem;
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
+    flex: 1; /* Allow it to grow but not push input off */
 }
 
 .chat-messages::-webkit-scrollbar {
@@ -131,6 +137,10 @@ body {
     color: #bbbbbb;
     max-width: 600px;
     margin: 0 auto;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .welcome-icon {
@@ -156,7 +166,7 @@ body {
     justify-content: center;
     align-items: center;
     gap: 0.5rem;
-    flex-wrap: nowrap; /* Prevent wrapping to ensure full text visibility */
+    flex-wrap: nowrap;
 }
 
 #current-model-info {
@@ -164,7 +174,7 @@ body {
     color: #64635f;
     font-size: 0.9rem;
     white-space: nowrap;
-    max-width: 80%; /* Increased to allow more space */
+    max-width: 80%;
 }
 
 .multimodal-badge {
@@ -284,6 +294,7 @@ body {
     background: #1e1e1e;
     border-top: 1px solid #333333;
     padding: 1rem 2rem 1.5rem;
+    flex-shrink: 0; /* Prevent input area from shrinking */
 }
 
 .input-container {
@@ -332,6 +343,7 @@ body {
     padding: 0.5rem;
     transition: border-color 0.2s ease;
     width: 100%;
+    max-height: 10vh; /* Adaptive height */
 }
 
 .input-row:focus-within {
@@ -370,7 +382,7 @@ body {
     outline: none;
     font-size: 1rem;
     line-height: 1.4;
-    max-height: 120px;
+    max-height: 10vh; /* Adaptive to viewport */
     min-height: 24px;
     padding: 0.5rem;
     font-family: inherit;
@@ -463,7 +475,7 @@ body {
     }
 
     .chat-messages {
-        padding: 1rem;
+        padding: 0.5rem; /* Reduced padding for mobile */
     }
 
     .welcome-message {
@@ -488,8 +500,8 @@ body {
     }
 
     #current-model-info {
-        font-size: 0.7rem; /* Reduced font size */
-        max-width: 70%; /* Increased to allow more space */
+        font-size: 0.7rem;
+        max-width: 70%;
     }
 
     .multimodal-badge {
@@ -534,12 +546,12 @@ body {
     .input-row {
         padding: 0.4rem;
         border-radius: 20px;
-        max-height: 10vh; /* Adaptive to viewport height */
+        max-height: 10vh;
     }
 
     #message-input {
         font-size: 0.85rem;
-        max-height: 10vh; /* Adaptive to viewport */
+        max-height: 10vh;
         min-height: 28px;
         padding: 0.3rem;
         line-height: 1.3;
@@ -568,7 +580,7 @@ body {
     }
 
     .chat-messages {
-        padding: 1rem;
+        padding: 0.5rem; /* Reduced padding */
     }
 
     .welcome-message {
@@ -588,8 +600,8 @@ body {
     }
 
     #current-model-info {
-        font-size: 0.65rem; /* Further reduced */
-        max-width: 75%; /* Increased to allow more space */
+        font-size: 0.65rem;
+        max-width: 75%;
     }
 
     .multimodal-badge {
@@ -607,10 +619,14 @@ body {
         max-width: 150px;
     }
 
+    .input-area {
+        padding: 0.4rem 0.6rem; /* Reduced padding */
+    }
+
     .input-row {
         border-radius: 16px;
         padding: 0.3rem;
-        max-height: 8vh; /* Further reduced for smaller screens */
+        max-height: 8vh; /* Adjusted for smaller screens */
     }
 
     .send-btn, .image-upload-btn {
@@ -621,7 +637,7 @@ body {
 
     #message-input {
         font-size: 0.8rem;
-        max-height: 8vh; /* Adaptive to viewport */
+        max-height: 8vh; /* Adjusted for smaller screens */
         min-height: 24px;
         padding: 0.2rem;
         line-height: 1.2;
@@ -641,12 +657,16 @@ body {
 
 /* High aspect ratio devices (e.g., 18:9 or taller) */
 @media (max-aspect-ratio: 9/18) {
+    .chat-messages {
+        padding: 0.3rem; /* Further reduced for tall screens */
+    }
+
     .input-area {
-        padding: 0.4rem 0.6rem;
+        padding: 0.3rem 0.5rem;
     }
 
     .input-row {
-        max-height: 6vh; /* Even smaller for tall screens */
+        max-height: 6vh; /* Smaller for tall screens */
         padding: 0.2rem;
     }
 
