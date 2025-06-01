@@ -156,7 +156,7 @@ body {
     justify-content: center;
     align-items: center;
     gap: 0.5rem;
-    flex-wrap: wrap;
+    flex-wrap: nowrap; /* Prevent wrapping to ensure full text visibility */
 }
 
 #current-model-info {
@@ -164,7 +164,7 @@ body {
     color: #64635f;
     font-size: 0.9rem;
     white-space: nowrap;
-    max-width: 70%;
+    max-width: 80%; /* Increased to allow more space */
 }
 
 .multimodal-badge {
@@ -435,7 +435,7 @@ body {
     }
 
     .logo h1 {
-        display: none; /* Hide AI Assistant text */
+        display: none;
     }
 
     .beta {
@@ -451,7 +451,7 @@ body {
     }
 
     .model-selector label {
-        display: none; /* Hide Model: text */
+        display: none;
     }
 
     #model-select {
@@ -488,9 +488,8 @@ body {
     }
 
     #current-model-info {
-        font-size: 0.75rem;
-        white-space: nowrap;
-        max-width: 60%;
+        font-size: 0.7rem; /* Reduced font size */
+        max-width: 70%; /* Increased to allow more space */
     }
 
     .multimodal-badge {
@@ -535,11 +534,12 @@ body {
     .input-row {
         padding: 0.4rem;
         border-radius: 20px;
+        max-height: 10vh; /* Adaptive to viewport height */
     }
 
     #message-input {
         font-size: 0.85rem;
-        max-height: 70px;
+        max-height: 10vh; /* Adaptive to viewport */
         min-height: 28px;
         padding: 0.3rem;
         line-height: 1.3;
@@ -554,11 +554,11 @@ body {
     }
 
     .logo h1 {
-        display: none; /* Hide AI Assistant text */
+        display: none;
     }
 
     .model-selector label {
-        display: none; /* Hide Model: text */
+        display: none;
     }
 
     #model-select {
@@ -588,8 +588,8 @@ body {
     }
 
     #current-model-info {
-        font-size: 0.7rem;
-        max-width: 55%;
+        font-size: 0.65rem; /* Further reduced */
+        max-width: 75%; /* Increased to allow more space */
     }
 
     .multimodal-badge {
@@ -610,6 +610,7 @@ body {
     .input-row {
         border-radius: 16px;
         padding: 0.3rem;
+        max-height: 8vh; /* Further reduced for smaller screens */
     }
 
     .send-btn, .image-upload-btn {
@@ -620,7 +621,7 @@ body {
 
     #message-input {
         font-size: 0.8rem;
-        max-height: 50px;
+        max-height: 8vh; /* Adaptive to viewport */
         min-height: 24px;
         padding: 0.2rem;
         line-height: 1.2;
@@ -635,5 +636,31 @@ body {
         width: 16px;
         height: 16px;
         font-size: 9px;
+    }
+}
+
+/* High aspect ratio devices (e.g., 18:9 or taller) */
+@media (max-aspect-ratio: 9/18) {
+    .input-area {
+        padding: 0.4rem 0.6rem;
+    }
+
+    .input-row {
+        max-height: 6vh; /* Even smaller for tall screens */
+        padding: 0.2rem;
+    }
+
+    #message-input {
+        max-height: 6vh;
+        min-height: 20px;
+        padding: 0.1rem;
+        font-size: 0.75rem;
+        line-height: 1.1;
+    }
+
+    .send-btn, .image-upload-btn {
+        width: 32px;
+        height: 32px;
+        font-size: 0.8rem;
     }
 }
