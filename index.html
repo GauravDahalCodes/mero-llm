@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LLM7.io Chat Interface</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="logo">
+                    <h1>AI Assistant</h1>
+                </div>
+                <div class="model-selector">
+                    <label for="model-select">Model:</label>
+                    <select id="model-select">
+                        <option value="gpt-4.1">GPT-4.1 (Multimodal)</option>
+                        <option value="gpt-4.1-mini">GPT-4.1 Mini (Multimodal)</option>
+                        <option value="gpt-4.1-nano">GPT-4.1 Nano (Multimodal)</option>
+                        <option value="deepseek-r1">DeepSeek R1</option>
+                        <option value="deepseek-v3">DeepSeek V3</option>
+                        <option value="llama-3.3-70b-instruct-fp8-fast">Llama 3.3 70B</option>
+                        <option value="llama-4-scout-17b-16e-instruct">Llama 4 Scout 17B</option>
+                        <option value="mistral-large-2411">Mistral Large 2411</option>
+                        <option value="mistral-small-3.1-24B">Mistral Small 3.1 24B (Multimodal)</option>
+                        <option value="pixtral-large-2411">Pixtral Large 2411 (Multimodal)</option>
+                        <option value="pixtral-12b-2409">Pixtral 12B 2409 (Multimodal)</option>
+                        <option value="phi-4">Phi-4 (Multimodal)</option>
+                        <option value="codestral-2501">Codestral 2501</option>
+                        <option value="codestral-2405">Codestral 2405</option>
+                        <option value="qwen2.5-coder-32b-instruct:int8">Qwen2.5 Coder 32B</option>
+                        <option value="mistral-saba-2502">Mistral Saba 2502</option>
+                        <option value="mistral-small-2503">Mistral Small 2503</option>
+                        <option value="mistral-small-2501">Mistral Small 2501</option>
+                        <option value="mistral-small-2409">Mistral Small 2409</option>
+                        <option value="mistral-large-2407">Mistral Large 2407</option>
+                        <option value="mistral-large-2402">Mistral Large 2402</option>
+                        <option value="ministral-8b-2410">Ministral 8B 2410</option>
+                        <option value="ministral-3b-2410">Ministral 3B 2410</option>
+                        <option value="open-mixtral-8x22b">Open Mixtral 8x22B</option>
+                        <option value="open-mixtral-8x7b">Open Mixtral 8x7B</option>
+                        <option value="open-mistral-nemo">Open Mistral Nemo</option>
+                        <option value="open-mistral-7b">Open Mistral 7B</option>
+                        <option value="mistral-medium">Mistral Medium</option>
+                        <option value="mistral-small-2402">Mistral Small 2402</option>
+                        <option value="unity-mistral-large">Unity Mistral Large (Multimodal)</option>
+                        <option value="mirexa">Mirexa (Multimodal)</option>
+                        <option value="sur">Sur (Multimodal)</option>
+                        <option value="bidara">Bidara (Multimodal)</option>
+                        <option value="searchgpt">SearchGPT (Multimodal)</option>
+                        <option value="openai-roblox">OpenAI Roblox (Multimodal)</option>
+                        <option value="grok">Grok</option>
+                        <option value="rtist">Rtist</option>
+                        <option value="hormoz:8b">Hormoz 8B</option>
+                        <option value="hypnosis-tracy:7b">Hypnosis Tracy 7B</option>
+                    </select>
+                </div>
+            </div>
+        </header>
+
+        <!-- Chat Container -->
+        <div class="chat-container">
+            <div class="chat-messages" id="chat-messages">
+                <div class="welcome-message">
+                    <div class="welcome-icon">🤖</div>
+                    <h2>Ready to Chat</h2>
+                    <p>Choose a model and start your conversation.</p>
+                    <div class="model-info">
+                        <span id="current-model-info">Current model: GPT-4.1</span>
+                        <span id="multimodal-indicator" class="multimodal-badge">Supports Images</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Input Area -->
+        <div class="input-area">
+            <div class="input-container">
+                <div class="image-preview" id="image-preview" style="display: none;">
+                    <img id="preview-img" src="" alt="Selected image">
+                    <button class="remove-image" id="remove-image">×</button>
+                </div>
+                <div class="input-row">
+                    <button class="image-upload-btn" id="image-upload-btn" title="Upload Image">
+                        📎
+                    </button>
+                    <input type="file" id="image-input" accept="image/*" style="display: none;">
+                    <textarea 
+                        id="message-input" 
+                        placeholder="Type your message..." 
+                        rows="1"
+                    ></textarea>
+                    <button class="send-btn" id="send-btn" disabled>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="22" y1="2" x2="11" y2="13"></line>
+                            <polygon points="22,2 15,22 11,13 2,9 22,2"></polygon>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
