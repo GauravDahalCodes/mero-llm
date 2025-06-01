@@ -23,8 +23,8 @@ body {
     flex-direction: column;
     width: 100vw;
     background: #121212;
-    min-height: 100vh; /* Ensure full height */
-    overflow-y: auto; /* Allow scrolling if needed */
+    min-height: 100vh;
+    overflow-y: auto;
 }
 
 /* Header */
@@ -33,7 +33,7 @@ body {
     color: white;
     padding: 0.75rem 2rem;
     border-bottom: 1px solid #333333;
-    flex-shrink: 0; /* Prevent header from shrinking */
+    flex-shrink: 0;
 }
 
 .header-content {
@@ -96,20 +96,20 @@ body {
 
 /* Chat Container */
 .chat-container {
-    flex: 1;
-    overflow-y: auto; /* Ensure scrolling for content */
+    flex: 1 1 auto; /* Allow growth but limit to available space */
+    overflow-y: auto;
     background: #121212;
     display: flex;
     flex-direction: column;
+    min-height: 0; /* Prevent overflow issues */
 }
 
 .chat-messages {
-    height: 100%;
+    padding: 2rem; /* Reduced from 6rem for desktop */
+    flex: 1 1 auto; /* Grow but respect container */
     overflow-y: auto;
-    padding: 6rem;
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
-    flex: 1; /* Allow it to grow but not push input off */
 }
 
 .chat-messages::-webkit-scrollbar {
@@ -133,7 +133,7 @@ body {
 /* Welcome Message */
 .welcome-message {
     text-align: center;
-    padding: 3rem 2rem;
+    padding: 1rem; /* Reduced padding */
     color: #bbbbbb;
     max-width: 600px;
     margin: 0 auto;
@@ -294,7 +294,9 @@ body {
     background: #1e1e1e;
     border-top: 1px solid #333333;
     padding: 1rem 2rem 1.5rem;
-    flex-shrink: 0; /* Prevent input area from shrinking */
+    flex-shrink: 0;
+    min-height: 60px; /* Ensure minimum visibility */
+    background-color: #2d2d2d; /* Temporary debug color */
 }
 
 .input-container {
@@ -343,7 +345,7 @@ body {
     padding: 0.5rem;
     transition: border-color 0.2s ease;
     width: 100%;
-    max-height: 10vh; /* Adaptive height */
+    max-height: 10vh;
 }
 
 .input-row:focus-within {
@@ -382,7 +384,7 @@ body {
     outline: none;
     font-size: 1rem;
     line-height: 1.4;
-    max-height: 10vh; /* Adaptive to viewport */
+    max-height: 10vh;
     min-height: 24px;
     padding: 0.5rem;
     font-family: inherit;
@@ -475,7 +477,7 @@ body {
     }
 
     .chat-messages {
-        padding: 0.5rem; /* Reduced padding for mobile */
+        padding: 0.5rem;
     }
 
     .welcome-message {
@@ -580,7 +582,7 @@ body {
     }
 
     .chat-messages {
-        padding: 0.5rem; /* Reduced padding */
+        padding: 0.5rem;
     }
 
     .welcome-message {
@@ -620,13 +622,13 @@ body {
     }
 
     .input-area {
-        padding: 0.4rem 0.6rem; /* Reduced padding */
+        padding: 0.4rem 0.6rem;
     }
 
     .input-row {
         border-radius: 16px;
         padding: 0.3rem;
-        max-height: 8vh; /* Adjusted for smaller screens */
+        max-height: 8vh;
     }
 
     .send-btn, .image-upload-btn {
@@ -637,7 +639,7 @@ body {
 
     #message-input {
         font-size: 0.8rem;
-        max-height: 8vh; /* Adjusted for smaller screens */
+        max-height: 8vh;
         min-height: 24px;
         padding: 0.2rem;
         line-height: 1.2;
@@ -658,7 +660,7 @@ body {
 /* High aspect ratio devices (e.g., 18:9 or taller) */
 @media (max-aspect-ratio: 9/18) {
     .chat-messages {
-        padding: 0.3rem; /* Further reduced for tall screens */
+        padding: 0.3rem;
     }
 
     .input-area {
@@ -666,7 +668,7 @@ body {
     }
 
     .input-row {
-        max-height: 6vh; /* Smaller for tall screens */
+        max-height: 6vh;
         padding: 0.2rem;
     }
 
