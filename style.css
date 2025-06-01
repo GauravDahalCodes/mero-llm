@@ -25,7 +25,7 @@ body {
 
 /* Header */
 .header {
-    background: #464242;
+    background: #1e1e1e;
     color: white;
     padding: 0.75rem 2rem;
     border-bottom: 1px solid #333333;
@@ -99,7 +99,6 @@ body {
     overflow-y: auto;
     padding: 6rem;
     scroll-behavior: smooth;
-    -webkit-overflow-scrolling: touch;
 }
 
 .chat-messages::-webkit-scrollbar {
@@ -208,16 +207,14 @@ body {
     background: #64635f;
     color: white;
     border-bottom-right-radius: 4px;
-    padding: 1rem 1.2rem;
 }
 
 .message.assistant .message-bubble {
-    background: #464242;
+    background: #3e3d38;
     color: #ffffff;
     border: 1px solid #333333;
     border-bottom-left-radius: 4px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-    padding: 1rem 1.2rem;
 }
 
 .message-image {
@@ -237,7 +234,7 @@ body {
     align-items: center;
     gap: 0.5rem;
     padding: 1rem 1.2rem;
-    background: #534e4e;
+    background: #535041;
     border-radius: 18px;
     border-bottom-left-radius: 4px;
     border: 1px solid #333333;
@@ -316,7 +313,7 @@ body {
 
 .input-row {
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     gap: 0.5rem;
     background: #333333;
     border: 2px solid #444444;
@@ -337,8 +334,8 @@ body {
     padding: 0.5rem;
     border-radius: 50%;
     transition: background-color 0.2s ease;
-    min-width: 44px;
-    height: 44px;
+    min-width: 40px;
+    height: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -389,8 +386,8 @@ body {
     background: #64635f;
     border: none;
     border-radius: 50%;
-    width: 44px;
-    height: 44px;
+    width: 40px;
+    height: 40px;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -411,172 +408,50 @@ body {
 }
 
 /* Responsive Design */
-@media (max-width: 768px) {
+@media (max-width: 768px) {    
     .header {
-        padding: 0.5rem 1rem;
+        padding: 0.75rem 1rem;
     }
-
+    
     .header-content {
         flex-direction: column;
         gap: 0.5rem;
     }
-
-    .logo h1 {
-        font-size: 1.1rem;
-    }
-
-    .model-selector {
-        width: 100%;
-        justify-content: center;
-    }
-
-    #model-select {
-        min-width: 100%;
-        font-size: 0.8rem;
-        padding: 0.4rem 0.8rem;
-    }
-
-    .chat-messages {
+    
+    .input-area {
         padding: 1rem;
     }
-
+    
+    .message-bubble {
+        max-width: 85%;
+    }
+    
     .welcome-message {
-        padding: 1.5rem 1rem;
-        max-width: 100%;
+        padding: 2rem 1rem;
     }
-
-    .welcome-icon {
-        font-size: 2rem;
-        margin-bottom: 0.8rem;
-    }
-
+    
     .welcome-message h2 {
         font-size: 1.5rem;
-        margin-bottom: 0.8rem;
     }
-
-    .welcome-message p {
-        font-size: 0.9rem;
-        line-height: 1.5;
-        margin-bottom: 1rem;
-    }
-
-    #current-model-info {
+    
+    #model-select {
+        min-width: 150px;
         font-size: 0.8rem;
-    }
-
-    .multimodal-badge {
-        padding: 0.2rem 0.6rem;
-        font-size: 0.7rem;
-    }
-
-    .message-bubble {
-        max-width: 90%;
-        padding: 0.8rem 1rem;
-        font-size: 0.9rem;
-    }
-
-    .message.user .message-bubble,
-    .message.assistant .message-bubble {
-        padding: 0.8rem 1rem;
-    }
-
-    .message-image {
-        max-width: 200px;
-    }
-
-    .input-area {
-        padding: 0.8rem 1rem;
-    }
-
-    .input-container {
-        max-width: 100%;
-    }
-
-    .image-preview img {
-        max-width: 150px;
-        max-height: 100px;
-    }
-
-    .remove-image {
-        width: 20px;
-        height: 20px;
-        font-size: 12px;
     }
 }
 
 @media (max-width: 480px) {
-    .chat-messages {
-        padding: 1rem;
-    }
-
-    .header {
-        padding: 0.5rem 0.8rem;
-    }
-
-    .logo h1 {
-        font-size: 1rem;
-    }
-
-    .model-selector label {
-        font-size: 0.75rem;
-    }
-
-    #model-select {
-        font-size: 0.75rem;
-        padding: 0.3rem 0.6rem;
-    }
-
-    .welcome-message {
-        padding: 1rem 0.8rem;
-    }
-
-    .welcome-icon {
-        font-size: 1.8rem;
-    }
-
-    .welcome-message h2 {
-        font-size: 1.3rem;
-    }
-
-    .welcome-message p {
-        font-size: 0.8rem;
-    }
-
-    .message-bubble {
-        max-width: 95%;
-        padding: 0.6rem 0.8rem;
-        font-size: 0.85rem;
-    }
-
-    .message-image {
-        max-width: 150px;
-    }
-
     .input-row {
         border-radius: 16px;
-        padding: 0.4rem;
     }
-
+    
     .send-btn, .image-upload-btn {
-        width: 40px;
-        height: 40px;
-        font-size: 1rem;
+        width: 36px;
+        height: 36px;
     }
-
-    #message-input {
-        font-size: 0.85rem;
-        max-height: 80px;
-    }
-
-    .image-preview img {
-        max-width: 120px;
-        max-height: 80px;
-    }
-
-    .remove-image {
-        width: 18px;
-        height: 18px;
-        font-size: 10px;
+    
+    .message-bubble {
+        max-width: 90%;
+        padding: 0.8rem 1rem;
     }
 }
