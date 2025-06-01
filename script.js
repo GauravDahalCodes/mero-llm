@@ -73,19 +73,21 @@ class LLM7Chat {
     }
     
     updateModelInfo() {
-        const modelName = this.modelSelect.options[this.modelSelect.selectedIndex].text;
-        this.currentModelInfo.textContent = `Current model: ${modelName}`;
-        
-        if (this.isMultimodal()) {
-            this.multimodalIndicator.style.display = 'inline-block';
-            this.imageUploadBtn.style.display = 'flex';
-            this.imageUploadBtn.disabled = false;
-        } else {
-            this.multimodalIndicator.style.display = 'none';
-            this.imageUploadBtn.style.display = 'none';
-            this.removeSelectedImage();
-        }
+    const modelName = this.modelSelect.options[this.modelSelect.selectedIndex].text;
+    const baseModelName = modelName.replace(' (Multimodal)', ''); // Extract base name
+    this.currentModelInfo.textContent = `Current model: ${baseModelName}`; // Set only base name
+    
+    if (this.isMultimodal()) {
+        this.multimodalIndicator.style.display = 'inline-block';
+        this.multimodalIndicator.textContent = 'Supports Images'; // Ensure badge text is correct
+        this.imageUploadBtn.style.display = 'flex';
+        this.imageUploadBtn.disabled = false;
+    } else {
+        this.multimodalIndicator.style.display = 'none';
+        this.imageUploadBtn.style.display = 'none';
+        this.removeSelectedImage();
     }
+}
     
     isMultimodal() {
         return this.multimodalModels.includes(this.currentModel);
